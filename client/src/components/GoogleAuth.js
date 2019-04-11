@@ -18,17 +18,50 @@ class GoogleAuth extends Component {
         this.setState({
           isSignedIn: this.auth.isSignedIn.get()
         })
+        this.auth.isSignedIn.listen(this.onAuthChange)
       })
     })
   }
 
+  // The context of an arrow function is automatically bound to its component
+  // This will update the signIn status without having to refresh
+  onAuthChange = () => {
+    this.setState({
+      isSignedIn: this.auth.isSignedIn.get()
+    })
+  }
+
+  onSignIn = () => {
+    this.auth.signIn()
+  }
+
+  onSignOut = () => {
+    this.auth.signOut()
+  }
+
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
-      return <div>IDK if we are signed in</div>
+      return <div>IDK</div>
     } else if (this.state.isSignedIn) {
-      return <div>I am signed in</div>
+      return (
+        <button
+          className="ui red google button"
+          onClick={ this.onSignOut }
+        >
+          <i className="google icon" />
+          Sign Out
+        </button>
+      )
     } else {
-      return <div>I am NOT signed in</div>
+      return (
+        <button
+          className="ui red google button"
+          onClick={ this.onSignIn }
+        >
+          <i className="google icon" />
+          Sign In with Google
+        </button>
+      )
     }
   }
 
