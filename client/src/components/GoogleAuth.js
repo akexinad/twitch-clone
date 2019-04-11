@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { clientId } from '../apis/oAuth.js'
+import { signIn, signOut } from '../actions'
 
 class GoogleAuth extends Component {
   state = {
@@ -25,10 +27,12 @@ class GoogleAuth extends Component {
 
   // The context of an arrow function is automatically bound to its component
   // This will update the signIn status without having to refresh
-  onAuthChange = () => {
-    this.setState({
-      isSignedIn: this.auth.isSignedIn.get()
-    })
+  onAuthChange = (isSignedIn) => {
+    if (isSignedIn) {
+      this.props.signIn()
+    } else {
+      this.props.signOut()
+    }
   }
 
   onSignInClick = () => {
@@ -74,4 +78,7 @@ class GoogleAuth extends Component {
   }
 }
 
-export default GoogleAuth
+export default connect(
+  null,
+  { signIn, signOut }
+)(GoogleAuth)
