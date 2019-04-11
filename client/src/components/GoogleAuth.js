@@ -31,11 +31,11 @@ class GoogleAuth extends Component {
     })
   }
 
-  onSignIn = () => {
+  onSignInClick = () => {
     this.auth.signIn()
   }
 
-  onSignOut = () => {
+  onSignOutClick = () => {
     this.auth.signOut()
   }
 
@@ -46,7 +46,7 @@ class GoogleAuth extends Component {
       return (
         <button
           className="ui red google button"
-          onClick={ this.onSignOut }
+          onClick={ this.onSignOutClick }
         >
           <i className="google icon" />
           Sign Out
@@ -56,7 +56,7 @@ class GoogleAuth extends Component {
       return (
         <button
           className="ui red google button"
-          onClick={ this.onSignIn }
+          onClick={ this.onSignInClick }
         >
           <i className="google icon" />
           Sign In with Google
