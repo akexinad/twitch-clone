@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { clientId } from '../apis/oAuth.js'
+import { CLIENT_ID } from '../apis/oAuth.js'
 import { signIn, signOut } from '../actions'
 
 class GoogleAuth extends Component {
@@ -9,7 +9,7 @@ class GoogleAuth extends Component {
     window.gapi.load('client:auth2', async () => {
       window.gapi.client
       .init({
-        clientId,
+        clientId: CLIENT_ID,
         scope: 'email'
       })
       .then( () => {
