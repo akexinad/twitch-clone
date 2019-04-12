@@ -15,6 +15,12 @@
       "description": "stream with user id",
       "userId": "108263280610129160754",
       "id": 3
+    },
+    {
+      "title": "Unexpected Behaviour",
+      "description": "Did not expect that!",
+      "userId": "108263280610129160754",
+      "id": 4
     }
   ]
 }
