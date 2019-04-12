@@ -1,8 +1,7 @@
 import React from 'react'
 import { Router, Route } from 'react-router-dom'
 
-import history from '../history'
-
+import history from '../history.js'
 import Header from './Header.js'
 import StreamCreate from './streams/StreamCreate.js'
 import StreamEdit from './streams/StreamEdit.js'
