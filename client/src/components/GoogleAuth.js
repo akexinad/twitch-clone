@@ -6,7 +6,7 @@ import { signIn, signOut } from '../actions'
 
 class GoogleAuth extends Component {
   componentDidMount() {
-    window.gapi.load('client:auth2', async () => {
+    window.gapi.load('client:auth2', () => {
       window.gapi.client
       .init({
         clientId: CLIENT_ID,
@@ -24,7 +24,7 @@ class GoogleAuth extends Component {
   // This will update the signIn status without having to refresh
   onAuthChange = (isSignedIn) => {
     if (isSignedIn) {
-      this.props.signIn()
+      this.props.signIn(this.auth.currentUser.get().getId())
     } else {
       this.props.signOut()
     }
