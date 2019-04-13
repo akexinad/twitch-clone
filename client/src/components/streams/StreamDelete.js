@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 // You can also shorten React.Fragment to be just simply <> </>
 import Modal from '../Modal.js'
+import history from '../../history.js'
 
 const StreamDelete = () => {
   const actions = (
@@ -17,6 +18,7 @@ const StreamDelete = () => {
         title="delete stream"
         content="Are you sure you want to delet this stream?"
         actions={ actions }
+        onDismiss={ () => history.push('/') }
       />
     </div>
   )
