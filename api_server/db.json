@@ -33,6 +33,12 @@
       "description": "world",
       "userId": "108263280610129160754",
       "id": 6
+    },
+    {
+      "title": "New stream after form refactoring",
+      "description": "New stream after form refactoring",
+      "userId": "108263280610129160754",
+      "id": 7
     }
   ]
 }
