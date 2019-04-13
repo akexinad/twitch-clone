@@ -14,12 +14,14 @@ class StreamShow extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params
 
+    console.log(this.videoRef);
+
     this.props.fetchStream(id)
     this.player = flv.createPlayer({
       type: 'flv',
       url: `http://localhost:8000/live/${ id }.flv`
     })
-    this.player.attachMediaElemenent(this.videoRef.current)
+    this.player.attachMediaElement(this.videoRef.current)
     this.player.load()
   }
 
