@@ -14,9 +14,21 @@ class StreamShow extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params
 
-    console.log(this.videoRef);
-
     this.props.fetchStream(id)
+    this.buildPlayer()
+  }
+
+  componenDidUpdate() {
+    this.buildPlayer()
+  }
+
+  buildPlayer() {
+    const { id } = this.props.match.params
+
+    if (this.player || !this.props.stream) {
+      return
+    }
+
     this.player = flv.createPlayer({
       type: 'flv',
       url: `http://localhost:8000/live/${ id }.flv`
