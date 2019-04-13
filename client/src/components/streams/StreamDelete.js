@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+// You can also shorten React.Fragment to be just simply <> </>
 import Modal from '../Modal.js'
 
 const StreamDelete = () => {
   const actions = (
-    <div>
+    <Fragment>
       <button className="ui button red">Delete</button>
       <button className="ui button">Cancel</button>
-    </div>
+    </Fragment>
   )
 
   return (
