@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className="item">
-        SpasmTV
+        TwitchyStreamy
       </Link>
       <div className="right menu">
         <Link to="/" className="item">
