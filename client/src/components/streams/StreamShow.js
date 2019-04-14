@@ -22,6 +22,10 @@ class StreamShow extends React.Component {
     this.buildPlayer()
   }
 
+  componentWillUnmount() {
+    this.player.destroy()
+  }
+
   buildPlayer() {
     const { id } = this.props.match.params
 
@@ -49,7 +53,7 @@ class StreamShow extends React.Component {
         <video
           ref={ this.videoRef }
           style={{ width: '100%' }}
-          controls={ true }
+          controls
         >
         </video>
         <h1>{ title }</h1>
